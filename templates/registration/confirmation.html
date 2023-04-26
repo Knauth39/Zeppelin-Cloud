@@ -1,0 +1,17 @@
+<!-- templates/registration/confirmation.html -->
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Confirmed{% endblock %}
+
+{% block content %}
+
+<h2 class="allign-center">Thank you for registering!</h2>
+<p>Please allow up to 24 hours for your account to be approved and activated.  You will be sent a confimation email with a temporary password once your account is setup.</p>
+<p>If you need immediate assistance, please <a href="mailto:info@zephyrsolutions.us">email us</a>.</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button class="primary-button" type="submit">Register</button>
+</form>
+{% endblock %}

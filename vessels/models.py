@@ -1,10 +1,12 @@
 # vessels/models.py
 
+from ast import Attribute
 from django.db import models
 from django_countries.fields import CountryField
 from django.conf import settings 
 from django.urls import reverse 
 from django.contrib.auth import get_user_model
+from attr import attr
 
 
 # Main Vessel class, with appropriate variables
@@ -45,6 +47,7 @@ class Vessel(models.Model):
     imo_number          = models.IntegerField(null=True, blank=True)
     call_sign           = models.CharField(max_length=200)
     mmsi_number         = models.IntegerField(null=True, blank=True)
+    # Vessel sizes
     length_meters       = models.FloatField(null=True, blank=True)
     beam_meters         = models.FloatField(null=True, blank=True)
     draft_meters        = models.FloatField(null=True, blank=True)
@@ -67,17 +70,26 @@ class Vessel(models.Model):
     notes               = models.TextField(blank=True)
     
     #Function to convert meters to feet
-    def metersToFeet(meters):
+    '''
+    def metersToFeet(self):
         CONVERT_NUM = 3.281
-        feet = meters * CONVERT_NUM
-        return feet
-    #TODO - do a sql query to get the float value from FloatField value
+        feet = self * CONVERT_NUM
+        #return feet 
+        
+    @attr
+    def length_to_feet(self):
+        return metersToFeet(self.length_meters)
+    
+    @attr
+    def beam_to_feet(self):
+        return metersToFeet(self.beam_meters)
+    
+    @attr
+    def draft_to_feet(self):
+        return metersToFeet(self.draft_meters)
     '''
-    length_feet = metersToFeet(float(length_meters))
-    beam_feet = metersToFeet(float(beam_meters))
-    draft_feet = metersToFeet(float(draft_meters))
-    '''
-
+   
+    
     # Associate a Captain from the database with the vessel
     # captain = models.ForeignKey(Crew, on_delete=models.CASCADE)
 

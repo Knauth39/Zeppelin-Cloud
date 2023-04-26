@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+{% extends "_base.html" %}
+
+{% block title %}Zeppelin | Welcome{% endblock %}
+
+{% block content %}
+<div class="background-orange" style="height: 55vh; padding-top: 10vh">
+  <div>
+    <img class="image-med-view" src="static/images/logo_zeppelin_07.png">
+    <h2 class="allign-center color-accent weight-300">Welcome to<h2>
+    <h2 class="allign-center color-accent weight-300">Yachting In the Cloud</h2>
+  </div>
+</div>
+
+<div class="background-white" style="margin-top: 150px;">
+  <a href="{% url 'login' %}" style="text-decoration: none;"><button type="button" class="primary-button">Log In</button></a>
+  <a href="{% url 'signup' %}" style="text-decoration: none;"><button type="button" class="secondary-button">Register</button></a>
+</div>
+{% endblock %}

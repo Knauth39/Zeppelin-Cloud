@@ -1,0 +1,18 @@
+<!-- templates/registration/signup.html -->
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="content-wrapper">
+<h2 class="allign-center">Register</h2>
+<p>Please fill in your details below, and instructions will be sent to your email with a temporary password</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button class="primary-button" type="submit">Register</button>
+</form>
+<div class="content-wrapper">
+{% endblock %}

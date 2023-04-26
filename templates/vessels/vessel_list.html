@@ -1,4 +1,9 @@
 <!-- templates/vessels/vessel_list.html -->
+{% extends "_base.html" %}
+
+{% block title %}Zeppeling | Vessel List{% endblock %}
+
+{% blcok content %}
 
 <h1>All Vessels</h1>
 {% for vessel in vessel_list %}
@@ -7,11 +12,10 @@
         <ul>
             <li>Flag:           {{ vessel.flag_country }}</li>
             <li>Registration:   {{ vessel.cor_number }}</li>
-            <li>Year Built:     {{ vessel.year_built }}</li>
             <li>LOA:            {{ vessel.length_meters }} M</li>
-            <li>Beam:           {{ vessel.beam_meters }} M</li>
-            <li>Draft:          {{ vessel.draft_meters }} M</li>
-            <li>GRT:            {{ vessel.gross_tonnage }}</li>
+            <li>GRT:            {{ vessel.gross_tonnage }}</li> 
         </ul>
 </ul>
 {% endfor %}
+
+{% endblock %}
