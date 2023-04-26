@@ -1,0 +1,17 @@
+<!-- templates/vessels/vessel_list.html -->
+
+<h1>All Vessels</h1>
+{% for vessel in vessel_list %}
+<ul>
+    <li>{{ vessel.vessel_type}} {{vessel.vessel_name}}</li>
+        <ul>
+            <li>Flag:           {{ vessel.flag_country }}</li>
+            <li>Registration:   {{ vessel.cor_number }}</li>
+            <li>Year Built:     {{ vessel.year_built }}</li>
+            <li>LOA:            {{ vessel.length_meters }} M</li>
+            <li>Beam:           {{ vessel.beam_meters }} M</li>
+            <li>Draft:          {{ vessel.draft_meters }} M</li>
+            <li>GRT:            {{ vessel.gross_tonnage }}</li>
+        </ul>
+</ul>
+{% endfor %}
